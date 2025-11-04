@@ -11,8 +11,8 @@ function getMoney( str ){
 
 function mMoeda () {
   // Para pegar o objeto que chamou o evento 
-  //var v = (event.target.value).substring(3); //extrai os 3 primeiros caracteres relativos ao 'R$ '
-  var v = event.target.value;
+  var v = (event.target.value).substring(3); //extrai os 3 primeiros caracteres relativos ao 'R$ '
+  //var v = event.target.value;
            
   //Faz uma série de substituições nas Expressões Regulares que podem gerar valores monetários
   v = v.replace(/\D/g, "");
@@ -23,8 +23,8 @@ function mMoeda () {
   v = v.replace(/(\d{1})(\d{4})$/, "$1.$2");
   v = v.replace(/(\d{1})(\d{1,1})$/, "$1,$2");
   // Para retornar os valores que estão sendo digitados com a formatação ao elemento que chamou a função
-  //event.target.value = "R$ " + v;
-  event.target.value = v;
+  event.target.value = "R$ " + v;
+  //event.target.value = v;
 }
 
 function formatReal(){
@@ -38,10 +38,10 @@ function formatReal(){
 
 function mCpf() {
    var cpf = event.target.value;
-   cpf = cpf.replace(/\D/g, "")
-   cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
-   cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
-   cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+   cpf = cpf.replace(/\D/g, "");
+   cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+   cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+   cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
    event.target.value = cpf;
 }
 
@@ -115,7 +115,7 @@ function validarCPF() {
         }
         if (ok == 0) {
            alert("Ops... Ocorreu um problema... CPF inválido!");
-           event.target.focus();
+           //event.target.focus();
         }
     }
 }
